@@ -1,8 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
 
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
 :root {
     --rotacao: 360deg;
-    --num-itens: 0;
 }
 
 body {
@@ -19,6 +26,7 @@ body.dark-mode {
 }
 
 main {
+    position: absolute;
     width: 100vw;
     text-align: center;
     margin: 0 auto;
@@ -179,11 +187,6 @@ body.dark-mode .resume:hover {
     }
 }
 
-main {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-}
 
 @keyframes girar {
     0% {
@@ -198,3 +201,28 @@ main {
 .animacao {
     animation: girar 3s forwards;
 }
+
+.roleta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn_roleta {
+    position: absolute;
+    z-index: 1;
+}
+
+.div_seta {
+    position: absolute;
+    width: 395px;
+    height: 395px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.seta_roleta {
+    width: 50px;
+}
+

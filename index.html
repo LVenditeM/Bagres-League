@@ -12,18 +12,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="roleta()">
     <main>
         <textarea name="jogadores" id="textarea" onkeyup="roleta()" cols="30" rows="10"></textarea>
-        <button id="btn_girar" onclick="sortear()">Girar</button>
         <div class="roleta" id="roleta">
-
+            <canvas id="Wheel" width="400" height="400"></canvas>
+            <canvas id="btn_roleta" class="btn_roleta" onclick="sortear()"></canvas>
+            <div class="div_seta">
+                <img src="assets/imgs/seta.png" class="seta_roleta" alt="">
+            </div>
         </div>
-
     </main>
-    <div class="roleta" id="roleta">
-        <canvas id="Wheel" width="400" height="400"></canvas>
-    </div>
+
 
 
 
