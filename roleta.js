@@ -8,13 +8,21 @@ function roleta() {
     lista = lista.filter(function (value) { return value != '' }) //Retira os espaços vazios
     console.log(lista)
 
+    //Pegando o valor da div roleta
+    const div_roleta = document.getElementById("roleta")
+    const roleta_size = div_roleta.getBoundingClientRect().width - 90
+
     // Pega o objeto da roleta
     const canvas = document.getElementById('Wheel');
     const ctx = canvas.getContext('2d');
 
+    //Definindo tamanho dos canvas roleta
+    canvas.width = roleta_size
+    canvas.height = roleta_size
+
     // Cria o circulo principal da roleta
     ctx.beginPath(); 
-    ctx.arc(200, 200, 150, 0, 2 * Math.PI); 
+    ctx.arc(roleta_size/2, roleta_size/2, roleta_size/2, 0, 2 * Math.PI); 
     ctx.fillStyle = 'orange';
     ctx.fill();
 
@@ -28,12 +36,12 @@ function roleta() {
 
         //Pega o centro do angulo de cada item 
         const sliceCenterAngle = (i * itemAngle) + (itemAngle / 2);
-        const sliceCenterX = 200 + Math.cos(sliceCenterAngle) * 100;
-        const sliceCenterY = 200 + Math.sin(sliceCenterAngle) * 100;
+        const sliceCenterX = roleta_size/2 + Math.cos(sliceCenterAngle) * 100;
+        const sliceCenterY = roleta_size/2 + Math.sin(sliceCenterAngle) * 100;
 
         ctx.beginPath();
-        ctx.moveTo(200, 200);
-        ctx.arc(200, 200, 150, i * itemAngle, (i + 1) * itemAngle, false);
+        ctx.moveTo(roleta_size/2, roleta_size/2);
+        ctx.arc(roleta_size/2, roleta_size/2, roleta_size/2, i * itemAngle, (i + 1) * itemAngle, false);
         ctx.closePath();
  
         // Cor e espesura da borda
@@ -47,14 +55,14 @@ function roleta() {
 
         // Define as propriedades do texto
         ctx.fillStyle = 'white';
-        ctx.font = '20px Arial';
+        ctx.font = '30px arial'
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.save();
 
         // Ajuste para texto vertical
         ctx.translate(sliceCenterX, sliceCenterY);
-        ctx.rotate(sliceCenterAngle + Math.PI); // Rotação de 90 graus
+        ctx.rotate(sliceCenterAngle + Math.PI * 4); // Rotação de 90 graus
 
         ctx.fillText(itemNames[i], 0, 0);
 
@@ -74,6 +82,8 @@ function roleta() {
 
     return lista
 }
+
+
 
 function iniciarAnimacao() {
     const roleta = document.getElementById("Wheel")

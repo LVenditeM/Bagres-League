@@ -202,7 +202,16 @@ body.dark-mode .resume:hover {
     animation: girar 3s forwards;
 }
 
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .roleta {
+    width: 800px;
+    height: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -215,8 +224,8 @@ body.dark-mode .resume:hover {
 
 .div_seta {
     position: absolute;
-    width: 395px;
-    height: 395px;
+    width: 800px;
+    height: 800px;
     display: flex;
     justify-content: end;
     align-items: center;
@@ -224,5 +233,17 @@ body.dark-mode .resume:hover {
 
 .seta_roleta {
     width: 50px;
+}
+
+
+@media (max-width: 1000px) {
+    .roleta {
+        width: 600px;
+        height: 600px;
+    }
+    .div_seta {
+        width: 595px;
+        height: 595px;
+    }
 }
 
