@@ -10,6 +10,6 @@ body.dark-mode .nav-link {
 body.dark-mode .nav-link:hover {
     border-bottom: 2px #61ebd0 solid;
 }
-body.dark-mode header {
+body.dark-mode header nav{
     background-color: #0c1c2c;
   }

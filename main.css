@@ -15,17 +15,19 @@ body {
     margin: 0 auto;
     font-family: 'Poppins', sans-serif;
     background-color: #97333f;
-    transition: background-color 0.5s ease-in-out;
     color: #ffdd03;
 }
-header {
+
+header nav {
+    background-color: #97333f;
+    width: 100%;
+}
+
+#navbar {
     position: sticky;
     top: 0;
-    background-color: #97333f;
-    transition: background-color 0.5s ease-in-out;
-    width: 100%;
-  }
-  
+}
+
 .logo {
     width: 75px;
     cursor: pointer;
