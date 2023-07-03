@@ -36,8 +36,9 @@ function roleta() {
 
         //Pega o centro do angulo de cada item 
         const sliceCenterAngle = (i * itemAngle) + (itemAngle / 2);
-        const sliceCenterX = roleta_size/2 + Math.cos(sliceCenterAngle) * 100;
-        const sliceCenterY = roleta_size/2 + Math.sin(sliceCenterAngle) * 100;
+        const sliceCenterX = roleta_size/2 + Math.cos(sliceCenterAngle) * roleta_size/4;
+        const sliceCenterY = roleta_size/2 + Math.sin(sliceCenterAngle) * roleta_size/4;
+        const radios = Math.min(roleta_size/2, roleta_size/2) - 10
 
         ctx.beginPath();
         ctx.moveTo(roleta_size/2, roleta_size/2);
@@ -54,8 +55,10 @@ function roleta() {
         ctx.stroke();
 
         // Define as propriedades do texto
+        list_ord = itemNames.sort((a,b) => a.length - b.length)
+        console.log(list_ord)
+        textSize = calculateTextSize(ctx, list_ord[list_ord.length-1], itemAngle, radios, numItems)
         ctx.fillStyle = 'white';
-        ctx.font = '30px arial'
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
         ctx.save();
@@ -82,6 +85,28 @@ function roleta() {
 
     return lista
 }
+
+function calculateTextSize(ctx, text, angle, radius, items_quantia) {
+    var maxTextWidth = Math.round(radius*0.8)
+    var fontSize = 12;
+    ctx.font = fontSize + "px Arial";
+    var textWidth = ctx.measureText(text).width;
+
+    while (textWidth > maxTextWidth && fontSize > 4) {
+      fontSize--;
+      ctx.font = fontSize + "px Arial";
+      textWidth = ctx.measureText(text).width;
+    }
+    while (textWidth < maxTextWidth && fontSize > 4) {
+        fontSize++;
+        ctx.font = fontSize + "px Arial";
+        textWidth = ctx.measureText(text).width;
+      }
+    console.log("Texto tamanho: "+ textWidth+ " Font Max: "+maxTextWidth)
+
+    fontSize = fontSize * ((50 * items_quantia) * 0.1)
+    ctx.font = fontSize + "px Arial";
+  }
 
 
 
