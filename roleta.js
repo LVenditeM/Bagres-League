@@ -103,9 +103,6 @@ function calculateTextSize(ctx, text, angle, radius, items_quantia) {
         textWidth = ctx.measureText(text).width;
       }
     console.log("Texto tamanho: "+ textWidth+ " Font Max: "+maxTextWidth)
-
-    fontSize = fontSize * ((50 * items_quantia) * 0.1)
-    ctx.font = fontSize + "px Arial";
   }
 
 
