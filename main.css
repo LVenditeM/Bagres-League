@@ -16,6 +16,7 @@ body {
     font-family: 'Poppins', sans-serif;
     background-color: #97333f;
     color: #ffdd03;
+    overflow-x: hidden;
 }
 
 header nav {
@@ -26,12 +27,18 @@ header nav {
 #navbar {
     position: sticky;
     top: 0;
+
 }
 
 .logo {
     width: 75px;
     cursor: pointer;
 }
+
+.logo:hover {
+    transform: scale(1.15);
+}
+
 
 .nav-link {
     display: flex;
@@ -60,14 +67,12 @@ header nav {
     border: none;
 }
 
-.theme-img-1,
-.theme-img-2 {
+.theme-img {
     padding: 0;
     width: 75px;
 }
 
-.theme-img-1:hover,
-.theme-img-2:hover {
+.theme-img:hover {
     transform: scale(1.15);
 }
 
