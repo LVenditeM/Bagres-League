@@ -55,9 +55,7 @@ function roleta() {
         ctx.stroke();
 
         // Define as propriedades do texto
-        list_ord = itemNames.sort((a,b) => a.length - b.length)
-        console.log(list_ord)
-        textSize = calculateTextSize(ctx, list_ord[list_ord.length-1], itemAngle, radios, numItems)
+        textSize = calculateTextSize(ctx, itemNames[i], radios, itemAngle >= 6 ? 3.14: itemAngle)
         ctx.fillStyle = 'white';
         ctx.textAlign = 'center';
         ctx.textBaseline = 'middle';
@@ -67,7 +65,7 @@ function roleta() {
         ctx.translate(sliceCenterX, sliceCenterY);
         ctx.rotate(sliceCenterAngle + Math.PI * 4); // Rotação de 90 graus
 
-        ctx.fillText(itemNames[i], 0, 0);
+        ctx.fillText(itemNames[i], 0, 5 , roleta_size/2);
 
         ctx.restore();
     }
@@ -86,25 +84,30 @@ function roleta() {
     return lista
 }
 
-function calculateTextSize(ctx, text, angle, radius, items_quantia) {
-    var maxTextWidth = Math.round(radius*0.8)
+function calculateTextSize(ctx, text, radius, angle) {
+    var maxTextWidth = Math.round(radius*3)
     var fontSize = 12;
-    ctx.font = fontSize + "px Arial";
+    ctx.font = fontSize + "px Roboto";
     var textWidth = ctx.measureText(text).width;
+    var textHeight = text.length * fontSize;
+    let tam_font = (Math.PI-angle)/2
+    tam_font = Math.sin(tam_font) * (radius*0.2)
+    tam_font = 3*(2*(Math.sqrt(Math.pow(radius*0.2,2)-Math.pow(tam_font, 2))))
+    console.log("Texto tamanho: "+ textHeight, text.length+ " Font Max: "+textWidth)
 
-    while (textWidth > maxTextWidth && fontSize > 4) {
-      fontSize--;
-      ctx.font = fontSize + "px Arial";
+    while (textHeight > maxTextWidth && textHeight > tam_font) {
+      fontSize--
+      ctx.font = fontSize + "px Roboto";
       textWidth = ctx.measureText(text).width;
+      textHeight = text.length * fontSize;
     }
-    while (textWidth < maxTextWidth && fontSize > 4) {
-        fontSize++;
-        ctx.font = fontSize + "px Arial";
-        textWidth = ctx.measureText(text).width;
-      }
-    console.log("Texto tamanho: "+ textWidth+ " Font Max: "+maxTextWidth)
+    while (textHeight < maxTextWidth && textHeight < tam_font) {
+      fontSize ++
+      ctx.font = fontSize + "px Roboto";
+      textWidth = ctx.measureText(text).width;
+      textHeight = text.length * fontSize;
+    }
   }
-
 
 
 function iniciarAnimacao() {
@@ -127,7 +130,18 @@ function sortear() {
     console.log(fatia)
     console.log(p_sorteada, giros_roleta)
     document.documentElement.style.setProperty("--rotacao", giros_roleta + "deg");
-
+    document.getElementById("resultado").innerHTML = "P sorteada: " + p_sorteada;
     return [p_sorteada, giros_roleta]
+}
+
+function gameModes() {
+  modes = ["Primitive Bagres",
+    "Golden Match",
+    "Maré de Bagres",
+    "Caos Absoluto",
+    "RoleSwap",
+    "Espelho do Destino",
+    "Heróis Invertidos"]
+    
 }
 
