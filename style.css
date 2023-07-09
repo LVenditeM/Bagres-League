@@ -6,14 +6,13 @@
     0% {
         transform: rotate(0deg);
     }
-
     100% {
         transform: rotate(var(--rotacao));
     }
 }
 
 .animacao {
-    animation: girar 3s forwards;
+    animation: girar 7s forwards;
 }
 
 main {
