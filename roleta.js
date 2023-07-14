@@ -86,13 +86,7 @@ function roleta() {
   return lista
 }
 function modoJogo() {
-  modes = ["Primitive Bagres",
-    "Golden Match",
-    "Maré de Bagres",
-    "Caos Absoluto",
-    "RoleSwap",
-    "Espelho do Destino",
-    "Heróis Invertidos"]
+  
 
 }
 
@@ -136,6 +130,42 @@ function sortear() {
   document.documentElement.style.setProperty("--rotacao", giros_roleta + "deg");
   document.getElementById("resultado").innerHTML = "P sorteada: " + p_sorteada;
   return [p_sorteada, giros_roleta]
+}
+
+const jogadores = localStorage.getItem("jogadores");
+function modosDeJogo(prm) {
+  modos = ["Primitive Bagres",
+    "Golden Match",
+    "Maré de Bagres",
+    "Caos Absoluto",
+    "RoleSwap",
+    "Espelho do Destino",
+    "Heróis Invertidos"]
+  lanes = ["Atirador",
+    "Suporte",
+    "Jungler",
+    "Mid laner",
+    "Top laner"]
+  textArea = document.getElementById("textarea")
+  if (prm == "modos") {
+    textArea.value = modos.join("\n")
+  }else if (prm == "lanes"){
+    textArea.value = lanes.join("\n")
+    
+  }else if (prm = "jogadores") {
+    if (textArea.value == []) {
+      textArea.value = []
+      localStorage.setItem("jogadores", textArea.value);
+      console.log("reset")
+    }else if (textArea != modos && textArea.value != lanes){
+      localStorage.setItem("jogadores", textArea.value);
+      console.log("setar", jogadores, textArea.value)
+    }else {
+      textArea.value = jogadores
+      console.log("salvar")
+    }
+  }
+  roleta()
 }
 
 

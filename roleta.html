@@ -19,64 +19,69 @@
     <div class="row">
         <div class="col-12 col-xl-3 col-md-6">
             <br>
-            <div onclick="modoJogo()" class="row score">
+            <div class="row score" id="iniciar_p">
                 <div class="col-3">
                     <div class="imgbox">
                         <img src="assets/imgs/Modos.png" class="size">
                     </div>
                 </div>
                 <div class="col-9 text-container">
-                    <h2 class="point-tittle">Modo de jogo <span id="jogadorXVitorias"></span></h2>
+                    <h2 class="point-tittle">Encontrar partida <span id="jogadorXVitorias"></span></h2>
                 </div>
             </div>
             <br>
             <div class="row score">
-                <div class="col-3">
-                    <div class="imgbox">
-                        <img src="assets/imgs/Lanes.png" class="size">
-                    </div>
-                </div>
-                <div class="col-9 text-container">
-                    <h2 class="point-tittle">Lanes <span id="jogadorOVitorias"></span></h2>
-                </div>
+                <h2 id="gamemode"></h2>
             </div>
             <br>
-            <div class="row score">
-                <div class="col-3">
-                    <div class="imgbox">
-                        <img src="assets/imgs/Names.png" class="size">
-                    </div>
-                </div>
-                <div class="col-9 text-container">
-                    <h2 class="point-tittle">Lanes <span id="jogadorOVitorias"></span></h2>
-                </div>
+            <div class="tableteam">
+                <table id="teamBlue">
+                    <thead>
+                        <th>Time Azul</th>
+                        <th>Lane</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+                <table id="teamRed">
+                    <thead>
+                        <th>Time Red</th>
+                        <th>Lane</th>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <br>
+            <div class="participantes" id="participantes">
+                <h3>participantes</h3   >
+                <table id="tabelaParticipantes">
+                </table>
             </div>
             <br>
             <button class="toggle-button score" onclick="toggleTextArea()">
                 <h2>Edit</h2>
             </button>
             <div id="textarea-container">
-                <textarea name="jogadores" id="textarea" onkeyup="roleta()" cols="30" rows="25"></textarea>
+                <textarea name="jogadores" id="textarea" cols="30" rows="25"></textarea>
             </div>
         </div>
+        
         <main class="col-12 col-xl-9 col-md-9">
-            <div class="roleta" id="roleta" onclick="sortear()">
+            <div class="roleta" id="roleta">
                 <canvas id="Wheel" width="400" height="400"></canvas>
-                <canvas id="btn_roleta" class="btn_roleta" ></canvas>
+                <canvas id="btn_roleta" class="btn_roleta"></canvas>
                 <div class="div_seta">
                     <img src="assets/imgs/seta.png" class="seta_roleta" alt="">
                 </div>
             </div>
-            <h1>Resultado da Roleta</h1>
-            <div id="resultado"></div>
-
         </main>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
         crossorigin="anonymous"></script>
     <script src="./dark.js"></script>
-    <script src="./roleta.js"></script>
+    <script src="./roleta copy.js"></script>
 </body>
 
 </html>

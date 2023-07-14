@@ -1,3 +1,9 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 :root {
     --rotacao: 360deg;
 }
@@ -62,9 +68,16 @@ main {
     }
 }
 
+.row {
+    display: flex;
+}
+
 .score {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     padding: 15px;
-    text-align: left;
+    text-align: center;
     background-color: #FAF9FF;
     width: 400px;
     height: 120px;
@@ -72,6 +85,69 @@ main {
     border-radius: 12px;
     cursor: pointer;
 }
+
+.participantes {
+    padding: 5px;
+    text-align: center;
+    background-color: #FAF9FF;
+    width: 400px;
+    height: 700px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+
+#tabelaParticipantes {
+    width: 100%;
+    height: 90%;
+}
+
+#tabelaParticipantes > tr {
+    display: flex;
+    padding-bottom: 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tableteam {
+    display: flex;
+    padding: 5px;
+    text-align: center;
+    background-color: #FAF9FF;
+    width: 400px;
+    height: 300px;
+    margin-left: 10px;
+    border-radius: 5px;
+    border-collapse: collapse;
+}
+
+thead th {
+    width: 50%;
+    border: 1px solid black;
+    padding-bottom: 10px;
+}
+
+tbody tr {
+    border: 1px solid black;
+}
+
+tr td{
+    border: 1px solid black;
+}
+
+#teamRed {
+    color: red;
+    width: 50%;
+    border: 1px solid black;
+}
+
+#teamBlue {
+    color: blue;
+    width: 50%;
+    border: 1px solid black;
+}
+
+
 
 .imgbox {
     width: 88px;
